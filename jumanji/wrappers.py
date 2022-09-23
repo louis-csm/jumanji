@@ -389,6 +389,7 @@ class BraxToJumanjiWrapper(Environment):
             timestep: TimeStep object corresponding the timestep returned by the environment,
         """
         state = self._env.step(state, action)
+        print(f"etat: {state}")
         timestep = jax.lax.cond(
             state.done,
             lambda _state: termination(
